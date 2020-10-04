@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-witdh, initial-scale=1.0">
+
+	<link rel="stylesheet" href="assets/css/styles.css">
+
+	<!-- == box icon == -->
+	<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<title>Protofolio</title>
+	<link rel="icon"href="assets/img/Logo.png">
+	<style type="text/css">
+		
+
+/*== variabel css == */
+:root{
+	--header-height: 3rem;
+	--font-semi: 600;
+}
+
+/* colores ==*/
+:root{
+	--firs-color: #4070F4;
+	--second-color:#0E2431;
+}
+
+
+/* FUENTE Y TIPOGRAFIA */
+:root{
+	--body-font:'Poppins', sans-serif;
+	--big-font-size: 2rem;
+	--h2-font-size: 1.25rem;
+	--normal-font-size: 0.938rem;
+}
+@media screen and (min-width: 768px){
+	:root{
+	--big-font-size: 3.5rem;
+	--h2-font-size: 2rem;
+	--normal-font-size: 1rem;
+	}
+}
+/* margenes == */
+:root{
+	--mb-1: 0.5rem;
+	--mb-2: 1rem;
+	--mb-3: 1.5rem;
+	--mb-4: 2rem;
+	--mb-5: 2.5rem;
+	--mb-6: 3rem;
+}
+/* z index */
+:root{
+	--z-back: -10; 
+	--z-normal: 1;
+	--z-tooltip: 10;
+	--z-fixed: 100;
+}
+
+/* base */
+*,::before,::after{
+	box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
+}
+body{
+	margin: var(--header-height) 0 0 0;
+	font-family: var(--body-font);
+	font-size: var(--normal-font-size);
+	color: var(--second-color);
+}	
+h1,h2,p{
+margin: 0;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+
+}
+img{
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+p{
+	font-family: sans-serif;
+}
+
+/* class css */
+.section-title{
+	position: relative;
+	font-size:  var(--h2-font-size);
+	color: #000;
+	margin-top: var(--mb-2);
+	margin-bottom: var(--mb-4);
+	text-align: center;
+}
+.section-title::after{
+	position: absolute;
+	content: "";
+	width: 64px;
+	height: 0.18rem;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 2rem;
+	background-color: #990099;
+
+}
+.section{
+	padding-top: 3rem;
+	padding-bottom: 2rem;
+}
+
+/* layout */
+.bd-grid{
+	max-width: 1024px;
+	display: grid;
+	grid-template-columns: 100%; 
+	grid-column-gap: 2rem;
+	width: calc(100% - 2rem);
+	margin-left: var(--mb-2);
+	margin-right: var(--mb-2);
+}
+
+
+.myNav{
+	transition: .5s;
+
+}
+.nav-link:hover{
+	position: relative;0
+}
+.nav-link:hover::after{
+	position: absolute;
+	content: "";
+	width: 10%;
+	height: 0.18rem;
+	left: 0;
+	top: 2rem;
+	background-color: var(--firs-color);
+}
+
+/* home */
+.home{
+	height: calc(100vh - 3rem);
+	grid-row-gap: 1rem;
+}
+.home_data{
+	align-self: center;
+}
+.home_title{
+	font-size: var(--big-font-size);
+	margin-bottom: var(--mb-5);
+	transition: 1s;
+}
+.home_title-color{
+	color:#990099;
+	transition: 1s;
+}
+.home_social{
+	display: flex;
+	flex-direction: column;
+	transition: 1s;
+}
+.home_social-icon{
+	width: max-content;
+	margin-bottom: var(--mb-2);
+	font-size: 1.5rem;
+	color: var(--second-color);
+	transition: 1s;
+}
+.home_social-icon:hover{
+	color: #990099;
+}
+.home_img{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 250px;
+	transition: 1s;
+}
+/* buttons */
+.button{
+	display: inline-block;
+	background-color: #990099;
+	color: #fff;
+	padding: .75rem 2.5rem;
+	font-weight: var(--font-semi);
+	border-radius: .5rem;
+	transition: 1s;
+}
+.button:hover{
+	box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+
+/* About */
+.about_container{
+	grid-row-gap: 2rem;
+	text-align: center;
+	transition: 3s;
+}
+.about_subtitle{
+	margin-bottom: var(--mb-2);
+	transition: 3s;
+}
+.about_img{
+	margin: auto;
+	transition: 1.7s;
+}
+.about_img img{
+	width: 200px;
+	border-radius: .5rem;
+	transition: 1s;
+}
+
+/* skills */
+.member_container{
+	grid-row-gap: 2rem;
+	text-align: center;
+	transition: 5s;
+}
+.members_subtitle{
+	margin-bottom: var(--mb-2);
+	transition: 5s;
+}
+.member_text{
+	margin-bottom: var(--mb-4);
+	transition: 4s;
+}
+.member_data{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	font-weight: var(--font-semi);
+	padding: .5rem 1rem;
+	margin-bottom: var(--mb-4);
+	border-radius: .5rem;
+	box-shadow: 0 4px 25px rgba(14,36,.15);
+	transition: 5s;
+}
+
+.member_bar{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: var(--firs-color);
+	height: .25rem;
+	border-radius: .5rem;
+	z-index: var(--z-back);
+	transition: 5s;
+}
+
+.member_img{
+	border-radius: .5rem;
+	transition: 1s;
+}
+.galery{
+	text-align: center;
+	transition: 1s;
+
+}
+.galery_container{
+	grid-row-gap: 2rem;
+	transition: 1s;
+}
+.galery_img{
+	box-shadow: 0 4px 20px rgba(14,36,49,.15);
+	border-radius: .5rem;
+	overflow: hidden;
+	transition: 1s;
+}
+.galery_img img{
+	transition: .5s;
+	cursor: pointer;
+	transition: 1s;
+}
+.galery_img img:hover{
+	transform: scale(1.1);
+}
+
+/* my team */
+.team_container{
+	grid-row-gap: 2rem;
+	text-align: center;
+	transition: 1s;
+}
+.team_subtitle{
+	text-align: center;
+	margin-bottom: var(--mb-2);
+	transition: 1s;
+}
+.team_img{
+	margin: auto;
+	transition: 1s;
+}
+.team_img img{
+	width: 300px;
+	border-radius: .5rem;
+}
+.team_text{
+	text-align: center;
+	transition: 1s;
+}
+.button_team{
+	display: inline-block;
+	background-color: #990099;
+	color: #fff;
+	padding: .75rem 2.5rem;
+	font-weight: var(--font-semi);
+	border-radius: .5rem;
+	margin: 20px;
+	transition: 1s;
+}
+.button_team:hover{
+	box-shadow: 0 10px 36px rgba(0,0,0,.15);
+	transition: 1s;
+}
+/* footer */
+.footer{
+	background-color: #990099;
+	color: #fff;
+	text-align: center;
+	font-weight: var(--font-semi);
+	padding: 2rem 0;
+	transition: 1s;
+
+}
+.footer_title{
+	font-size: 2.3rem;
+	margin-bottom: var(--mb-4);
+	transition: 1s;
+}
+.footer_social{
+	margin-bottom: var(--mb-4);
+}
+.footer_icon{
+	font-size: 2rem;
+	color: #fff
+	margin: 0 var(--mb-2);
+	transition: 1s;
+}
+.team_icon{
+	font-size: 2.5rem;
+	color: #fff
+	margin: 0 var(--mb-2);
+	transition: 1s;
+}
+/* media queries */
+@media screen and (min-width: 768px){
+	body{
+		margin: 0;
+	}
+	.section{
+		padding-top: 4rem;
+		padding-bottom: 3rem;
+	}
+	.section-title{
+		margin-bottom: var(--mb-6);
+	}
+	.section-totle::after{
+		width: 80px;
+		top: 3rem;
+	}
+	.home{
+		height: 100vh;
+		transition: 1s;
+	}
+	.home_data{
+		align-self: flex-end;
+		transition: 1s;
+	}
+	.home_social{
+		padding-top: 0;
+		padding-bottom: 2.5rem;
+		flex-direction: row;
+		align-self: flex-end;
+		transition: 1s;
+	}
+	.home_social-icon{
+		margin-bottom: 0;
+		margin-right: var(--mb-4);
+		transition: 1s;
+	}
+	.home_img{
+		width: 457px;
+		bottom: 15%;
+		transition: 1s;
+	}
+	.about_container {
+		grid-template-columns: repeat(2,1fr);
+		align-items: center;
+		text-align: initial;
+		transition: 1s;
+	}
+	.about_img img{
+		width: 350px;
+		transition: 1s;
+	}
+	.member_container{
+		grid-template-columns: repeat(2,1fr);
+		align-items: center;
+		text-align: initial;
+		transition: 1s;
+	}
+	.member_img img{
+		width: 350px;
+		transition: 1s;
+	}
+	.galery_container{
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2,1fr);
+		column-gap: 2rem;
+		 transition: 1s;
+}
+	.team_container {
+		grid-template-columns: repeat(2,1fr);
+		align-items: center;
+		text-align: initial;
+		transition: 1s;
+	}
+	.team_img img{
+		width: 350px;
+		transition: 1s;
+		
+	}
+}
+	</style>
+	<link rel="icon"href="Logo jsp.jpg">
+</head>
+<body>
+<header class="l-header">
+	<nav class="navbar fixed-top navbar-dark " id="myNav"
+	style="background-color:#990099;">
+  <a class="navbar-brand" href="#">JSP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <a class="nav-link" href="#about">Tentang kami<span class="sr-only">(current)</span></a>
+      </li>
+      </li>
+      <a class="nav-link" href="#member">Member<span class="sr-only">(current)</span></a>
+      </li>
+      <a class="nav-link" href="#sosial">Social media<span class="sr-only">(current)</span></a>
+      </li>
+      </li>
+      <a class="nav-link" href="#galery">Galery<span class="sr-only">(current)</span></a>
+      </li>
+      </li>
+      <a class="nav-link" href="#Profile">Profile<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+</header>
+
+<main class="1-main">
+	<section class="home bd-grid" id="home">
+		<div class="home_data">
+			<h1 class="home_title">Hi <br>WelcomeTo<span class="home_title-color"> Jsp</span><br>Jakarta Squad Patriotsm</h1>
+			<a href="https://www.instagram.com/dickysetiawan195/?hl=id" class="button">Contact</a>
+		</div>
+		<div class="home_img">
+			<img src="Garuda.png">
+		</div>
+		<div class="home_social">
+			<a href="https://www.instagram.com/dickysetiawan195/?hl=id" class="home_social-icon"><i class='bx bxl-linkedin'></i></a>
+			<a href="https://github.com/Dicky5etiawan" class="home_social-icon"><i class='bx bxl-github' ></i></a>
+			
+		</div>
+
+	</section>
+
+
+	
+	<section class="about section" id="about">
+		<h2 class="section-title">Tentang Kami</h2>
+		<div class="about_container bd-grid">
+			<div class="about_img">
+				<img src="Logo jsp.jpg">
+			</div>
+
+			<div>
+				<h2 class="about_subtitle">Jakarta Squad Patriotsm</h2>
+				<p class="about_text">Salam kenal teman.Jakarta Squad Patriotsm atau Jsp adalah anggota paskibra dari SMPN 195 Jakarta Timur.Alhamdulillah kami juga telah menjuarai beberapa kejuaran yang di selenggarakan di setiap sekolah</p>
+			</div>
+
+		</div>
+	</section>
+
+	
+	<section class="member section" id="member">
+		<h2 class="section-title">Member</h2>
+		<div class="member_container bd-grid">
+			<div>
+				<h2 class="member_subtitle">Member</h2>
+				<p class="member_text">Member JSP terdiri dari 1-20 anggota,tetapi anggota yang sering ikut kejuaraan itu di pilih kembali.anggota JSP juga mempunyai angkatan.</p>	
+			</div>
+			<div>
+				<img src="Jsp.png" class="member_img">
+			</div>
+		</div>
+	</section>
+	<section class="sosial section" id="sosial">
+		<h2 class="section-title">Sosial media</h2>
+		<div class="about_container bd-grid">
+			<div class="about_img">
+				<img src="Jsp1.png">
+			</div>
+
+			<div>
+				<h2 class="about_subtitle">Jakarta Squad Patriotsm</h2>
+				<p class="about_text">Jika Teman ingin tau lebih banyak Tentang kami bisa di cek di berbagai media sosial</p>
+				<a href="https://www.youtube.com/watch?v=XopjWwdwvu8" class="team_icon"><i class='bx bxl-youtube'></i></i></i></a>
+				<a href="https://www.instagram.com/jsp_195/?hl=id" class="team_icon"><i class='bx bxl-instagram-alt' ></i></a>
+				<a href="https://twitter.com/garudasakti5" class="team_icon"><i class='bx bxl-twitter' ></i></a>
+			</div>
+
+		</div>
+	</section>
+
+
+	
+	<section class="galery section" id="galery">
+		<h2 class="section-title">Galery</h2>
+
+		<div class="galery_container bd-grid">
+			
+			<div class="galery_img">
+				<img src="Jsp1.png">
+			</div>
+			<div class="galery_img">
+				<img src="Jsp2.png">
+			</div>
+			<div class="galery_img">
+				<img src="jsp3.png">
+			</div>
+			<div class="galery_img">
+				<img src="Jsp4.png">
+			</div>
+			<div class="galery_img">
+				<img src="Jsp5.png">
+			</div>
+			<div class="galery_img">
+				<img src="Jsp6.png">
+			</div>
+		</div>
+	</section>
+
+
+	<section class="Profile section" id="Profile">
+		<h2 class="section-title">Profile</h2>
+		<div class="team_container bd-grid">
+			<div class="team_img">
+				<img src="user.jpg">
+			</div>
+
+			<div>
+				<h2 class="team_subtitle">Profile</h2>
+				<p class="team_text">This author's profile was written not from a member of Jsp.if you have a problem, you can join my community namely {IndoSec} to have a discussion together, or you can contact me below, God willing, I can help</p>
+				<a href="https://web.facebook.com/profile.php?id=100025339540398" class="team_icon"><i class='bx bxl-facebook-square' ></i></i></a>
+				<a href="https://www.youtube.com/channel/UC7ifmbZznQyLFxj8AOq-kKw" class="team_icon"><i class='bx bxl-youtube'></i></i></i></a>
+				<a href="https://www.instagram.com/dickysetiawan195/?hl=id" class="team_icon"><i class='bx bxl-instagram-alt' ></i></a>
+				<a href="https://twitter.com/infosec" class="team_icon"><i class='bx bxl-twitter' ></i></a>
+			</div>
+
+		</div>
+		<a href="https://indosec.id/" class="button_team">Profile</a>
+	</section>
+
+</main>
+<footer class="footer">
+	<p class="footer_title">Jakarta Squad Patriotsm</p>
+
+	<div class="footer_social">
+		<a href="https://www.youtube.com/watch?v=XopjWwdwvu8" class="footer_icon"><i class='bx bxl-youtube'></i></i></i></a>
+		<a href="https://www.instagram.com/jsp_195/?hl=id" class="footer_icon"><i class='bx bxl-instagram'></i></a>
+		<a href="https://twitter.com/garudasakti5" class="footer_icon"><i class='bx bxl-twitter' ></i></a>
+		
+	</div>
+	<p>&#169; Copyright 2020 Created by <a href=""><i class='bx bxs-heart' style="color: red;"></i></a> JSP</p>
+</footer>
+
+
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script type="text/javascript">
+	const sr = ScrollReveal({
+	origin:'top',
+	distance: '80px',
+	duration: 2000,
+	reset: true
+})
+sr.reveal('.home_title',{interval: 200})
+	sr.reveal('.button', {interval: 400})
+		sr.reveal('.home_img', {interval: 600})
+			sr.reveal('.home_social-icon', {interval: 200})
+				sr.reveal('.about_subtitle', {interval: 200})
+					sr.reveal('.about_text', {interval: 600})
+						sr.reveal('.about_img', {interval: 200})
+							sr.reveal('.member_subtitle', {interval: 600})
+								sr.reveal('.member_text', {interval: 400})
+								sr.reveal('.member_data', {interval: 200})
+							sr.reveal('.member_names', {interval: 200})
+						sr.reveal('.member_img', {interval: 200})
+					sr.reveal('.galery_img', {interval: 200})
+				sr.reveal('.team_subtitle', {interval: 200})
+			sr.reveal('.team_text', {interval: 200})
+		sr.reveal('.team_img', {interval: 200})
+	sr.reveal('.button_team', {interval: 200})
+sr.reveal('.team_icon', {interval: 200})
+
+</script>
+
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	
+	</body>
+</html>
